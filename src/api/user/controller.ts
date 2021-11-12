@@ -16,8 +16,8 @@ async function getUserController(req: express.Request, res: express.Response) {
         })
     } catch (error) {
         console.log(error);
-        res.status(error.code).send(error);
+        res.status(400).send(error);
     }
 }
 
-export { getUserController };
+export { getUserController }

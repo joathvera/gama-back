@@ -6,7 +6,7 @@ import { sign } from "./api/middleware-auth/auth";
 
 require('dotenv').config();
 
-sign();
+// sign();
 
 const app = express();
 const port = process.env.PORT || 8080;
