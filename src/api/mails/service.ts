@@ -22,8 +22,8 @@ async function sendQuote(user: any, url : string) {
         let mailOptions: MailOptions = {
             from: 'j.vera@dappertechnologies.com',
             to: [
-                "a.aguilar@dappertechnologies.com",
-                "a.laguna@dappertechnologies.com"
+                // "nohunenrique@gmail.com" 
+                user
             ],
             // cc: 'r.ruvalcaba@dappertechnologies.com',
             subject: 'Correo de prueba',
@@ -31,15 +31,17 @@ async function sendQuote(user: any, url : string) {
             attachments: [
                 {
                     filename: 'documento-prueba.pdf',
-                    path: 'https://firebasestorage.googleapis.com/v0/b/gamma-construcciones.appspot.com/o/files%2F27ekfsqwm1b?alt=media&token=257c4221-1270-4b30-a6b9-ecdfe4fea07c'
+                    path: url
                 }
             ]
         };
         let info = await transporter.sendMail(mailOptions);
+        
 
         return {
             mailId:info.messageId,
-            message:'mail sended'
+            message:'mail sended',
+            user
         }
     } catch(error){
         throw error;
